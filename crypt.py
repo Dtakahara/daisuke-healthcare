@@ -41,7 +41,7 @@ SRC = os.path.join(ROOT, "src")
 ITER = 250_000
 
 # 手で編集する gate ページ
-PAGES = ["index.html", "routine.html", "dashboard.html", "bowl.html", "leucine.html"]
+PAGES = ["index.html", "routine.html", "dashboard.html", "bowl.html", "leucine.html", "protein.html"]
 # 正本mdから自動生成する gate ページ（extract しない。build で必ず作り直す）
 GENERATED = ["profile.html"]
 ALL_PAGES = PAGES + GENERATED
@@ -59,6 +59,7 @@ TITLES = {
     "dashboard.html": "健康管理ダッシュボード",
     "bowl.html": "昼ボウルの栄養設計",
     "leucine.html": "ロイシン閾値と食事設計",
+    "protein.html": "プロテイン比較",
     "profile.html": "健康管理プロファイル（正本）",
 }
 
