@@ -106,6 +106,21 @@ git add <変更したファイル>                           # src/ は .gitigno
   この実行環境からは `dtakahara.github.io` への疎通がネットワークポリシーで遮断されているため、
   **反映確認はGitHub API側（Actions の `pages build and deployment`）で行ってください。**
 
+### この環境のネットワーク（実測で確定・2026-08）
+
+- 環境の **Network access は既定の `Trusted`**（許可リスト方式）。**検索(WebSearch)はAnthropic側の
+  別経路で実行されるので動く。落ちるのはページ本文の直接取得(WebFetch/curl)。**
+  「検索ができない」ではなく「ページが読めない」。この違いを混同しない。
+- 通る: `github.com` / `code.claude.com`（公式ドキュメントは読める）。
+  落ちる: `dtakahara.github.io`、各ECサイト。**遮断ホストは迂回せず、落ちた事実をそのまま報告する。**
+- **価格・栄養成分を検索スニペットだけで表に書かない。**実価格と2倍以上ズレた実績があります。
+  出典を読めていない数値は「未検証」と明示し、検証済みと表を分けること。
+- 変更方法: claude.ai/code の**メッセージ入力欄のすぐ上にある雲アイコン** → 対象環境にホバー →
+  右端の歯車 → `Network access` を `Full` か `Custom` に。**専用の設定ページもURLも存在しない。**
+  `Custom` の場合は **「Also include default list of common package managers」に必ずチェック**
+  （外すとGitHubもpipも落ちる）。**環境は2つあり両方とも名前が "Default" なので両方変更する。**
+  設定はセッション起動時に1回だけ読まれるため、**変更後は新しいセッションを開き直す。**
+
 ---
 
 ## 5. 継続タスク
